@@ -1,4 +1,5 @@
 import os
+import sys
 import unittest
 import typing
 import tempfile
@@ -7,9 +8,10 @@ import preppipe
 import preppipe.pipeline_cmd
 import preppipe.pipeline
 import preppipe.language
-from . import util
 import warnings
 
+sys.path.append(os.path.dirname(os.path.realpath(__file__)))
+import util
 class TestZHDocsRenPyExport(unittest.TestCase):
   LANGMODE : typing.ClassVar[list[str]] = ["zh_cn", "zh_hk"]
 
