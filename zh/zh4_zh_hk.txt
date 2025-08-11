@@ -1,9 +1,13 @@
 script.rpy:
 
 label start:
-    jump yanglisi
+    jump YangLiSi
 
-label yanglisi:
+zh4.rpy:
+# 命令結點 VNASTSayNode 只在函數內有意義(也就是說不能在函數範圍外、只在文件域內)，將被忽略。 (vncodegen-functionlocal-command-in-globalscope)
+
+label YangLiSi:
+    preppipe_error_sayer_zh_hk "Cannot find unique match for command: [[注:也可写作：“章节：样例四”]\nunmatched candidates: cmd_comment: cmdparser-unused-param: 參數未使用：也可写作 (vnparser-cmd-match-error)"
     "这是语涵编译器原型的样例文本其四，文件组织与控制流部分说明。"
     "在之前的内容中，除了选项命令使用户可以点选选项之外，其他样例的内容都是一条直线，从头到尾。"
     "实际使用中，我们会希望能将内容分散在多个文件中，部分剧情可能会用在不止一处。"
@@ -13,59 +17,64 @@ label yanglisi:
     "不包含在函数、章节内的内容将不会被用于生成，所以如果该文档在函数命令之前还有内容的话，这些内容都将被忽略。"
     "不过，如果整个文档通篇都没有章节、函数命令的话，语涵编译器会根据文档名创建一个函数并把所有内容移至其中。"
     "这也是之前几个样例能够正确进行代码生成的保证。"
-    jump diergehanshu
+    # 下面会介绍
+    jump DiErGeHanShu
 
-label diergehanshu:
+label DiErGeHanShu:
     "从这里开始，所有的内容都属于“第二个函数”。如果上一个函数没有“转至函数”命令，语涵编译器会为其添加返回指令。转至函数指令使得控制流能够到达该函数。"
     "如果要手动调用函数，那么可以使用如下命令：（这里我们用一个选项命令来避免其执行）"
     menu:
         "调用函数":
-            jump .lingyigewuyiyidexuanxiang_b0
+            jump .LingYiGeWuYiYiDeXuanXiang_B0
         "转至函数":
-            jump .lingyigewuyiyidexuanxiang_b1
+            jump .LingYiGeWuYiYiDeXuanXiang_B1
         "正常继续":
-            jump .lingyigewuyiyidexuanxiang_b2
+            jump .LingYiGeWuYiYiDeXuanXiang_B2
 
-label .lingyigewuyiyidexuanxiang_b0:
-    call diergehanshu
+label .LingYiGeWuYiYiDeXuanXiang_B0:
+    call DiErGeHanShu
+    # 后面仍可接其他内容
     "这则内容可以正常显示，与此同时，该选项结束处还会跳转至选项出口"
-    jump .lingyigewuyiyidexuanxiang_exit
+    jump .LingYiGeWuYiYiDeXuanXiang_Exit
 
-label .lingyigewuyiyidexuanxiang_exit:
+label .LingYiGeWuYiYiDeXuanXiang_Exit:
     "当使用“调用函数”命令时，语涵编译器假定当控制流转移至被调用的函数之后，在某个时间可能还会返回，所以该命令之后还可以续其他内容。"
     "当使用“转至函数”命令时，语涵编译器假定不会返回，所以该命令后不能再接内容。"
     "【函数返回】命令可以结束当前函数。"
-    call disangehanshu
+    call DiSanGeHanShu
+    # 也可写作“章节结束”
     preppipe_error_sayer_zh_hk "以下命令結點在一個已經結束的基本塊中，內容不會被處理： Say NARRATE 这句话不在任何函数中，不会出现在输出里。。請將內容移至可能結束該基本塊的指令前（比如跳轉、選項等）。 (vncodegen-unhandled-node-in-terminated-block)"
     return
 
-label .lingyigewuyiyidexuanxiang_b1:
-    jump diergehanshu
+label .LingYiGeWuYiYiDeXuanXiang_B1:
+    # 后面不可以接其他内容，因为该调用不会返回
+    jump DiErGeHanShu
 
-label .lingyigewuyiyidexuanxiang_b2:
+label .LingYiGeWuYiYiDeXuanXiang_B2:
     "继续"
-    jump .lingyigewuyiyidexuanxiang_exit
+    jump .LingYiGeWuYiYiDeXuanXiang_Exit
 
-label disangehanshu:
+label DiSanGeHanShu:
     "除了上述的函数间跳转外，函数内也可以使用基于标签的函数内跳转。使用基于标签的跳转有如下限制：1. 所有的跳转都是单向的，有去无回；2. 所有的标签名都只在函数内部有效，其他函数无法跳转。"
-    jump .biaoqian1
+    jump .BiaoQian1
 
-label .biaoqian1:
+label .BiaoQian1:
     "与函数命令相同，当内容中出现标签时，游戏运行到此处时默认会跳转到该标签所在位置。要进行跳转时可使用【转至标签】命令，比如："
     menu:
         "转至标签":
-            jump .youyigewuyiyidexuanxiang_b0
+            jump .YouYiGeWuYiYiDeXuanXiang_B0
         "正常继续":
-            jump .youyigewuyiyidexuanxiang_b1
+            jump .YouYiGeWuYiYiDeXuanXiang_B1
 
-label .youyigewuyiyidexuanxiang_b0:
-    jump .biaoqian1
+label .YouYiGeWuYiYiDeXuanXiang_B0:
+    # 后面不可以接其他内容
+    jump .BiaoQian1
 
-label .youyigewuyiyidexuanxiang_b1:
+label .YouYiGeWuYiYiDeXuanXiang_B1:
     "继续"
-    jump .youyigewuyiyidexuanxiang_exit
+    jump .YouYiGeWuYiYiDeXuanXiang_Exit
 
-label .youyigewuyiyidexuanxiang_exit:
+label .YouYiGeWuYiYiDeXuanXiang_Exit:
     "由于目前暂未支持变量与表达式，语涵编译器还不支持有条件分支，所以能够改变控制流的指令就这些。"
     "对于当前的场景、出场的角色、定义的别名状态等运行时状态，在不同的控制流路径上可能会不一样，语涵编译器会努力使其在控制流交汇点保持一致。"
     "目前如果这些信息存在分歧，语涵编译器会采用在内容上“从上到下”中第一个可以到达交汇点的状态。"

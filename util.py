@@ -5,7 +5,7 @@ import hashlib
 import shutil
 import fnmatch
 
-def collectDirectoryDataAsText(path : str, excludepattern : str | None = None) -> str:
+def collectDirectoryDataAsText(path : str, excludepatterns : list[str] | None = None) -> str:
   """Dump all contents in a directory as a single string to ease comparison"""
   result = []
   rootpath = os.path.abspath(path)
@@ -15,8 +15,13 @@ def collectDirectoryDataAsText(path : str, excludepattern : str | None = None) -
     for file in files:
       filePath = os.path.join(root, file)
       printPath = os.path.relpath(filePath, rootpath)
-      if excludepattern:
-        if fnmatch.fnmatch(printPath, excludepattern):
+      if excludepatterns is not None:
+        is_excluded = False
+        for excludepattern in excludepatterns:
+          if fnmatch.fnmatch(printPath, excludepattern):
+            is_excluded = True
+            break
+        if is_excluded:
           continue
       result.append(printPath + ":")
       with open(filePath, "rb") as f:

@@ -1,8 +1,10 @@
 script.rpy:
-image anonimg_0 = "images/10000001000004B00000010EBE42AC38381E779A.png"
 
 label start:
     jump zh2
+
+zh2.rpy:
+image Undeclared_TuYi_YuHanBianYiQiDeTuBiaoYuYingYuMingCheng = "images/<NO_CHECK>.png"
 
 label zh2:
     "这是语涵编译器原型的样例文本其二，富文本语义说明。"
@@ -17,11 +19,11 @@ label zh2:
     "（注：如果要内嵌后端命令，除了以上格式外，还可以写成这种形式：）"
     # 这也将被内嵌到 RenPy 输出
     "所有居中段落的文本也会被当做特殊段。目前这样的特殊段只在使用图片时比较有用，比如："
-    show anonimg_0 with dissolve
+    show Undeclared_TuYi_YuHanBianYiQiDeTuBiaoYuYingYuMingCheng at <NO_CHECK> with dissolve
     "这里的整个段落都会被作为特殊段，之后的命令可以通过“图一”或者“语涵编译器的图标与英语名称”来指代这个图片。"
     "在文本中内嵌图片的默认动作是把图片显示出来。"
     "之后的内容中可以使用以下命令来去掉图片："
-    hide anonimg_0 with dissolve
+    hide Undeclared_TuYi_YuHanBianYiQiDeTuBiaoYuYingYuMingCheng with dissolve
     "目前不跟随命令或者图片的特殊段都将被忽视，比如很多文档开头会用居中的大标题，这些都不会出现在输出中。"
     "如果段落和文本样式不符合以上的场景，语涵编译器不会记下这些样式，只会把它们当做普通的文本来处理。"
     "除了文本与段落样式外，文档中还可以内嵌表格和列表，不过他们都需要特定的指令来让语涵编译器明白应该怎么处理它们。"
@@ -30,26 +32,26 @@ label zh2:
     "目前使用表格的只有如下一个命令："
     "以上命令等价于："
     "使用列表的命令稍多，举例来说："
-    jump .yigewuyiyidexuanxiang_header
+    jump .YiGeWuYiYiDeXuanXiang_Header
 
-label .yigewuyiyidexuanxiang_header:
+label .YiGeWuYiYiDeXuanXiang_Header:
     menu:
         "问题1：为什么这里要放一个无意义的选项？":
-            jump .yigewuyiyidexuanxiang_b0
+            jump .YiGeWuYiYiDeXuanXiang_B0
         "我问完了":
-            jump .yigewuyiyidexuanxiang_b1
+            jump .YiGeWuYiYiDeXuanXiang_B1
 
-label .yigewuyiyidexuanxiang_b0:
+label .YiGeWuYiYiDeXuanXiang_B0:
     "因为选项命令是一个可以用列表的命令"
-    jump .yigewuyiyidexuanxiang_header
+    jump .YiGeWuYiYiDeXuanXiang_Header
 
-label .yigewuyiyidexuanxiang_b1:
-    jump .yigewuyiyidexuanxiang_exit
+label .YiGeWuYiYiDeXuanXiang_B1:
+    jump .YiGeWuYiYiDeXuanXiang_Exit
 
-label .yigewuyiyidexuanxiang_exit:
+label .YiGeWuYiYiDeXuanXiang_Exit:
     "可以让用户点选内容。列表不区分使用数字还是使用符号。"
     "希望后续的样例能够让您更好地感受这些功能的便利，下个样例见！"
     return
 
-images/10000001000004B00000010EBE42AC38381E779A.png:
-<Binary file; MD5=c3cb2bb52306f5ed9be1aa423f8cb8f5>
+images/<NO_CHECK>.png:
+<Binary file; MD5=<NO_CHECK>>
