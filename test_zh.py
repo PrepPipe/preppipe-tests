@@ -45,6 +45,7 @@ def renpy_handle_test_input(inputfile : str, lang : str, assetdir: str, dirname:
             "--renpy-export", testpath]
     preppipe.pipeline.pipeline_main(args)
     strdump = util.collectDirectoryDataAsText(testpath, excludepatterns=[
+      "01_ui_helper.rpy",
       "preppipert.rpy",
       ".preppipe_export_cache.json",
     ])
