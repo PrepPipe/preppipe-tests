@@ -7,7 +7,7 @@ zh4.rpy:
 # 命令结点 VNASTSayNode 只在函数内有意义(也就是说不能在函数范围外、只在文件域内)，将被忽略。 (vncodegen-functionlocal-command-in-globalscope)
 
 label YangLiSi:
-    preppipe_error_sayer_zh_cn "Cannot find unique match for command: [[注:也可写作：“章节：样例四”]\nunmatched candidates: cmd_comment: cmdparser-unused-param: 参数未使用：也可写作 (vnparser-cmd-match-error)"
+    # 也可写作：“章节：样例四”
     "这是语涵编译器原型的样例文本其四，文件组织与控制流部分说明。"
     "在之前的内容中，除了选项命令使用户可以点选选项之外，其他样例的内容都是一条直线，从头到尾。"
     "实际使用中，我们会希望能将内容分散在多个文件中，部分剧情可能会用在不止一处。"

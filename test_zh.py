@@ -71,7 +71,7 @@ def renpy_handle_test_input(inputfile : str, lang : str, assetdir: str, dirname:
         if linecnt >= len(strdump_lines):
           raise RuntimeError(f"Output file {expected_path} is shorter than expected, missing line {linecnt + 1}")
         expected = expected_content_lines[linecnt]
-        actual = strdump_lines[linecnt]
+        actual = strdump_lines[linecnt].replace("\\", "/")
         if expected != actual:
           if "<NO_CHECK>" in expected:
             # 如果有 NO_CHECK 标记，我们比较去掉它之后的内容

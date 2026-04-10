@@ -3,6 +3,7 @@ define yh = Character("语涵")
 define srzjjzhzdsywmybdfhsyzxhhbdzygrmrh = Character("虽然这句句子很长但是因为没有标点符号所以这些话会被当做一个人名然后")
 define syh = Character("苏语涵")
 define yq = Character("语泉")
+image bg ZouLang = "images/anon.png"
 
 label start:
     jump <NO_CHECK>
@@ -51,10 +52,14 @@ label <NO_CHECK>:
     play music "audio/bgm/Gymnopedie No 1.mp3" fadein 0.5 fadeout 0.5
     # 参数值包含空格等字符时需要引号
     preppipe_error_sayer_zh_cn "场景 走廊 未找到，我们将新建该场景且不设置其背景。如果您已经声明了该场景，请检查是否有拼写、输入错误。 (vncodegen-scene-notfound)"
+    scene bg ZouLang with fade:
+        xysize (1.0, 1.0)
     # 可以在发言时使用“语涵”来指代“苏语涵”
     "如果命令至少支持一个参数，则其支持的第一个参数可以不写参数名（即使用按位参数传递）。语涵编译器不支持多个按位参数，多个其他所有参数在传递时需要指定参数名。比如以上命令，"
     "把参数名写全是这样的："
     play music "audio/bgm/Gymnopedie No 1.mp3" fadein 0.5 fadeout 0.5
+    scene bg ZouLang with fade:
+        xysize (1.0, 1.0)
     "为了便于移植其他文本，语涵编译器目前有三种发言模式，以上都是默认模式。"
     preppipe_error_sayer_zh_cn "处理发言模式改变命令时：未知发言者“语涵”，我们将使用默认设置创建该发言者。 (vncodegen-character-nameresolution-failed)"
     syh "在长发言模式下，所有的除命令段之外的内容都将被当作指定发言者（语涵）所说的话。像这样本来是旁白说的话也会被作为指定发言者的话。"
