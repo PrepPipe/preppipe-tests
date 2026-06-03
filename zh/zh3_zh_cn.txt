@@ -27,7 +27,7 @@ label zh3:
     syh "微笑中。"
     "立绘的第一组完整的状态（例子中的“正常，平静”）将作为角色未指定状态时的默认状态。之后可以使用不完整的状态（比如这里的“微笑”而不是完整的“正常，微笑”）来改变状态。"
     "要显示立绘，可以使用以下命令让角色上场："
-    show syh ZhengChang WeiXiao at screen2d_abs(683, 216,550,864) with dissolve
+    show syh ZhengChang WeiXiao at screen2d_abs(683, 216,550,864), preppipe_sprite_dissolve_in(0.5)
     "也可以在入场时指定状态："
     show syh JieShi WeiXiao
     preppipe_error_sayer_zh_cn "角色 苏语涵 已经入场，不能再次上场。 (vncodegen-character-stateerror)"
@@ -35,7 +35,7 @@ label zh3:
     hide syh JieShi WeiXiao with dissolve
     "除了角色外，场景也是演出中重要的部分。目前背景图片是与场景相绑定的。场景可以用以下命令进行声明："
     "之后可以使用以下命令来切换到该场景："
-    scene bg FangJian with fade:
+    scene bg FangJian with dissolve:
         xysize (1.0, 1.0)
     "切换场景会使当前场上的角色、已显示的图片全部撤下。"
     "除了角色和场景外，剩下的一个常见命令就是设置背景音乐："
