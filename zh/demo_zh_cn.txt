@@ -20,14 +20,14 @@ image bg GuiLu = "images/pathway.png"
 
 label ZhuZhang:
     play music "audio/bgm/Gymnopedie No 1.mp3" fadein 0.5 fadeout 0.5
-    scene bg ZouLang with fade:
+    scene bg ZouLang with dissolve:
         xysize (1.0, 1.0)
     "介绍会等会就开始了，现在去和老姐汇合吧。"
     "应该是旁边这间吧。"
     "空空荡荡的小教室，就是这里。"
-    scene bg FangJian with fade:
+    scene bg FangJian with dissolve:
         xysize (1.0, 1.0)
-    show syh ZhengChang PingJing at screen2d_abs(439, 270,1032,1620) with dissolve
+    show syh ZhengChang PingJing at screen2d_abs(439, 270,1032,1620), preppipe_sprite_dissolve_in(0.5)
     show syh ZhengChang WeiXiao
     syh "你来了啊。"
     preppipe_error_sayer_zh_cn "角色 苏语泉: 没有找到立绘差分声明，所以所有的状态、表情改变都会被忽略。如果想在状态、表情改变时切换立绘，请在声明角色时声明所有的立绘差分。 (vncodegen-character-state-empty)"
@@ -65,7 +65,7 @@ label ZhuZhang:
     syh "那我们现在开始。"
     syh "为了更好地理解语涵编译器的使用场景和设计理念，我们先来回顾一下视觉小说的大致制作过程。"
     show syh JieShi WeiXiao at screen2d_abs(716, 270,1032,1620)
-    show Undeclared_Tu1_ShiJueXiaoShuoDeDaZhiZhiZuoGuoChengYuYouXiKuangJia at screen2d_abs(192, 259,547,238) with dissolve
+    show Undeclared_Tu1_ShiJueXiaoShuoDeDaZhiZhiZuoGuoChengYuYouXiKuangJia at screen2d_abs(192, 259,547,238), preppipe_sprite_dissolve_in(0.5)
     syh "这里是一张简略的关于制作过程的示意图，我们先从这张图的下方开始。"
     syh "首先，视觉小说制作的最终产品是游戏本身，这是玩家实际获取的部分。"
     syh "由于视觉小说的玩法以及交互设计的相对固定，或者说成熟，每部视觉小说都有一部分很少需要改动、可在不同游戏间通用的程序框架，我们称之为游戏{b}引擎{/b}。"
@@ -115,7 +115,7 @@ label ZhuZhang:
     syh "设想一下，如果在剧本成型的第一天就能生成一个可运行的游戏原型，所有新的素材刚准备完成就能在游戏中实机验证，相信制作组就能够更有成就感、更有动力地继续开发创作，同时也有更多的时间及早发现问题并进行修复。"
     syh "更进一步，如果制作组采取更合适的流程，在剧本完成时能够更准确地了解所需的美术音乐资源，那么由错误预估资源需求导致的浪费和返工就能大量减少。"
     show syh ZhengChang WeiXiao at screen2d_abs(711, 270,1032,1620)
-    show Undeclared_Tu2_0Xff08YouYuHanBianYiQiXiaDe0Xff09ZhiZuoLiuChengYuKuangJia at screen2d_abs(197, 259,532,237) with dissolve
+    show Undeclared_Tu2_0Xff08YouYuHanBianYiQiXiaDe0Xff09ZhiZuoLiuChengYuKuangJia at screen2d_abs(197, 259,532,237), preppipe_sprite_dissolve_in(0.5)
     syh "简而言之，语涵编译器是一个将上图中的录入、演出步骤自动化的程序。"
     syh "在制作组成员用文档进行剧本创作、用表格来记录素材信息时，如果文档与表格符合一定的格式，语涵编译器将能够读取这些文件，直接生成所选引擎的演出剧本和素材。"
     syh "生成的脚本、素材等都可以以游戏引擎工程的形式输出，方便制作者直接生成可运行的游戏。"
@@ -135,7 +135,7 @@ label ZhuZhang:
     show syh ZhengChang PingJing
     syh "为了更好地使用语涵编译器，我们推荐对视觉小说的制作过程进行一部分变更，来最大化使用语涵编译器的收益。"
     show syh ZhengChang PingJing at screen2d_abs(744, 270,1032,1620)
-    show Undeclared_Tu3_JiChuBanGuanXian at screen2d_abs(169, 273,628,210) with dissolve
+    show Undeclared_Tu3_JiChuBanGuanXian at screen2d_abs(169, 273,628,210), preppipe_sprite_dissolve_in(0.5)
     syh "当语涵编译器不够成熟时，我们预计自动演出的实际效果与制作者想要的理想效果仍有较大差距。"
     syh "在这种情况下，制作者仍然可以使用语涵编译器提供的快速迭代来更好更精准地准备各类素材。"
     syh "如图所示，在这种情况下，首次创作后完成的内容，即使和最终游戏内容相比只有一小部分，也可以编译为游戏工程进行实机测试，并以此指导后续的修改与继续开发。"
@@ -145,7 +145,7 @@ label ZhuZhang:
     syh "当语涵编译器足够成熟，自动演出的大部分内容能够满足成品质量要求时，可能需要手动修改的部分会变得很少，此时我们推荐如图的流程："
     show syh ZhengChang WeiXiao at screen2d_abs(444, 270,1032,1620)
     show Undeclared_Tu3_JiChuBanGuanXian at screen2d_abs(1241, 273,628,210)
-    show Undeclared_Tu4_JinJieBanGuanXian at screen2d_abs(48, 237,643,282) with dissolve
+    show Undeclared_Tu4_JinJieBanGuanXian at screen2d_abs(48, 237,643,282), preppipe_sprite_dissolve_in(0.5)
     hide Undeclared_Tu3_JiChuBanGuanXian with dissolve
     show syh ZhengChang WeiXiao at screen2d_abs(128, 270,1032,1620)
     show Undeclared_Tu4_JinJieBanGuanXian at screen2d_abs(1111, 237,643,282)
@@ -210,7 +210,7 @@ label .TiWen_Exit:
     syh "完成！这样就好了。"
     syq "好的，等会回去之后就把视频传到网上吧。"
     syh "没问题。"
-    scene bg GuiLu with fade:
+    scene bg GuiLu with dissolve:
         xysize (1.0, 1.0)
     "收拾完东西离开教学楼时，天色已经完全暗淡下来。"
     syq "唉，我现在有点担心，万一我们辛辛苦苦把这个编译器做完了，但最后没有一个人用，那怎么办。"

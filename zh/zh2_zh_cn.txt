@@ -19,7 +19,7 @@ label zh2:
     "（注：如果要内嵌后端命令，除了以上格式外，还可以写成这种形式：）"
     # 这也将被内嵌到 RenPy 输出
     "所有居中段落的文本也会被当做特殊段。目前这样的特殊段只在使用图片时比较有用，比如："
-    show Undeclared_TuYi_YuHanBianYiQiDeTuBiaoYuYingYuMingCheng at <NO_CHECK> with dissolve
+    show Undeclared_TuYi_YuHanBianYiQiDeTuBiaoYuYingYuMingCheng at <NO_CHECK>, preppipe_sprite_dissolve_in(0.5)
     "这里的整个段落都会被作为特殊段，之后的命令可以通过“图一”或者“语涵编译器的图标与英语名称”来指代这个图片。"
     "在文本中内嵌图片的默认动作是把图片显示出来。"
     "之后的内容中可以使用以下命令来去掉图片："
